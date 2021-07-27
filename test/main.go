@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"golang-tools/common"
 )
 
 func main() {
-	common.FormatPrint()
+	//common.FormatPrint()
+	fmt.Println(common.NowTime())
 }
