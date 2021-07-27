@@ -7,5 +7,5 @@ import (
 
 func main() {
 	//common.FormatPrint()
-	fmt.Println(common.NowTime())
+	fmt.Println(common.TimeStamp())
 }
