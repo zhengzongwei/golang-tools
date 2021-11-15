@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 	"golang-tools/common"
-	"time"
 )
-
 
 func main() {
 	//common.FormatPrint()
@@ -24,12 +22,14 @@ func main() {
 	// ss := "NIHAO"
 	// a := strings.Compare(name,ss)
 	// fmt.Printf("%d",a)
-	
-	start := common.NowTime()
-	time.Sleep(5*time.Second)
-	end := common.NowTime()
 
-	var diffTime = common.CalculateRunTime(start,end)
-	fmt.Printf("%d",diffTime)
+	// start := common.NowTime()
+	// time.Sleep(5*time.Second)
+	// end := common.NowTime()
+
+	// var diffTime = common.CalculateRunTime(start,end)
+
+	// common.ConversionTime(3600)
+	// fmt.Printf("%s", common.ConversionTime())
 
 }
