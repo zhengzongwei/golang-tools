@@ -5,6 +5,11 @@ import (
 	"golang-tools/common/datetime"
 )
 
+
+
+func datetime_test()  {
+	
+}
 func main() {
 	//common.FormatPrint()
 	//fmt.Println(common.TimeStamp())
