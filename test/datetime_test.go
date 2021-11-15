@@ -9,12 +9,9 @@ import (
 
 func TestConversionTime(t *testing.T) {
 	for i := 0; i < 10; i++ {
-		fmt.Println(rand.Int63n(10000))
-		f := datetime.ConversionTime(rand.Int63n(10000))
-		fmt.Printf("%s\n", f)
+		timeSec := rand.Int63n(10000)
+		f := datetime.ConversionTime(timeSec)
+		fmt.Printf("%d  %s\n", timeSec, f)
 	}
-
-	// f := datetime.ConversionTime(2046)
-	// fmt.Printf("%s",f)
 
 }
