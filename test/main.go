@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang-tools/common"
+	"golang-tools/common/datetime"
 )
 
 func main() {
@@ -30,6 +30,6 @@ func main() {
 	// var diffTime = common.CalculateRunTime(start,end)
 
 	// common.ConversionTime(3600)
-	// fmt.Printf("%s", common.ConversionTime())
+	fmt.Printf("%s", datetime.ConversionTime(7896))
 
 }

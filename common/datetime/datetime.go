@@ -5,7 +5,7 @@
  * @Update
  */
 
-package common
+package datetime
 
 import (
 	"fmt"
