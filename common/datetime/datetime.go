@@ -18,6 +18,7 @@ import (
  * @param
  * @return None
  */
+
 func FormatPrint() {
 	fmt.Printf("this is a common.go")
 }
@@ -28,6 +29,7 @@ func FormatPrint() {
  * @param None
  * @return currentTimeStamp int64 "timestamp"
  */
+
 func TimeStamp() int64 {
 	currentTimeStamp := time.Now().Unix()
 	return currentTimeStamp
@@ -39,6 +41,7 @@ func TimeStamp() int64 {
  * @param None
  * @return currentTime string "time"
  */
+
 func NowTime() string {
 	currentTime := time.Now().Format("2006-01-02 15:04:05")
 	return currentTime
@@ -51,6 +54,7 @@ func NowTime() string {
  *			endTime string
  * @return: int64 返回执行的时间
  */
+
 func CalculateRunTime(startTime, endTime string) int64 {
 	var diffTime int64
 	timeTmp := "2006-01-02 15:04:05"
@@ -70,11 +74,12 @@ func CalculateRunTime(startTime, endTime string) int64 {
  * @param:  timeStamp int64 需要转换的时间戳
  * @return:  map[string]int64
  */
+
 func ConversionTime(timeStamp int64) map[string]int64 {
-	days := timeStamp/(3600*24)
-	hour := (timeStamp%(3600*24))/3600
-	min := (timeStamp%3600)/60
-	sec := timeStamp&60/1000
-	data := map[string]int64{"days": days, "hour": hour, "min": min,"sec":sec}
+	days := timeStamp / (3600 * 24)
+	hour := (timeStamp % (3600 * 24)) / 3600
+	min := (timeStamp % 3600) / 60
+	sec := timeStamp & 60 / 1000
+	data := map[string]int64{"days": days, "hour": hour, "min": min, "sec": sec}
 	return data
 }
