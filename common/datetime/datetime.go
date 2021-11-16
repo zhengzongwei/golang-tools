@@ -9,7 +9,6 @@ package datetime
 
 import (
 	"fmt"
-	"strconv"
 	"time"
 )
 
@@ -69,13 +68,13 @@ func CalculateRunTime(startTime, endTime string) int64 {
  * @title: CalculateRunTime
  * @description: 转换时间为具体的天周日时分秒
  * @param:  timeStamp int64 需要转换的时间戳
- * @return: string
+ * @return:  map[string]int64
  */
-func ConversionTime(timeStamp int64) string {
-
-	days := strconv.FormatInt(timeStamp/(3600*24), 10)
-	hour := strconv.FormatInt((timeStamp%(3600*24))/3600, 10)
-	min := strconv.FormatInt((timeStamp%3600)/60, 10)
-	sec := strconv.FormatInt(timeStamp&60/1000, 10)
-	return days + "天" + hour + "时" + min + "分" + sec + "秒"
+func ConversionTime(timeStamp int64) map[string]int64 {
+	days := timeStamp/(3600*24)
+	hour := (timeStamp%(3600*24))/3600
+	min := (timeStamp%3600)/60
+	sec := timeStamp&60/1000
+	data := map[string]int64{"days": days, "hour": hour, "min": min,"sec":sec}
+	return data
 }
