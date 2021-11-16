@@ -13,9 +13,16 @@ import (
 	"github.com/shirou/gopsutil/host"
 )
 
+type NodeInfo struct{
+	os *host.InfoStat
+}
+
 func SystemInfo(){
 	nodeInfo,_:= host.Info()
+	info :=NodeInfo{
+		os:nodeInfo,
+	}
 	
-	fmt.Printf("%v",nodeInfo)
+	fmt.Printf("%v",info.os)
  }
 
