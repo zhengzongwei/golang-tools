@@ -15,14 +15,14 @@ import (
 )
 
 type DiskInfo struct {
-	diskinfo disk.PartitionStat
-	usage    disk.UsageStat
+	DiskInfo disk.PartitionStat `json:"diskInfo"`
+	Usage    disk.UsageStat     `json:"usage"`
 }
 
 type NodeInfo struct {
-	os   *host.InfoStat
-	cpu  []cpu.InfoStat
-	disk []DiskInfo
+	OS   *host.InfoStat `json:"os"`
+	CPU  []cpu.InfoStat `json:"cpu"`
+	DISK []DiskInfo     `json:"disk"`
 }
 
 /*
