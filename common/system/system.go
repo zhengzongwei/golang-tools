@@ -16,13 +16,13 @@ import (
 
 type DiskInfo struct {
 	diskinfo disk.PartitionStat
-	usage disk.UsageStat
+	usage    disk.UsageStat
 }
 
-type NodeInfo struct{
-	os *host.InfoStat
-	cpu[] cpu.InfoStat
-	disk DiskInfo
+type NodeInfo struct {
+	os   *host.InfoStat
+	cpu  []cpu.InfoStat
+	disk []DiskInfo
 }
 
 /*
@@ -32,33 +32,27 @@ type NodeInfo struct{
  * @return:
  */
 
-func SystemInfo(){
-	nodeInfo,_:= host.Info()
-	cpuInfo, _:= cpu.Info()
+func SystemInfo() {
+	nodeInfo, _ := host.Info()
+	cpuInfo, _ := cpu.Info()
 
-	diskInfo,_:=disk.Partitions(true)
+	diskInfo, _ := disk.Partitions(true)
 	//for i:=0;i<len(diskInfo);i++{
 	//	fmt.Printf("%v\n",diskInfo[i])
 	//}
-	var diskinfo DiskInfo = DiskInfo{ }
-	for _,value :=range diskInfo{
-
-
-		diskusage,_ := disk.Usage(value.Device)
-		diskinfo.diskinfo = value
-		diskinfo.usage = *diskusage
+	diskinfo := []DiskInfo{}
+	for _, value := range diskInfo {
+		diskusage, _ := disk.Usage(value.Device)
+		diskinfo = append(diskinfo, DiskInfo{diskinfo: value, usage: *diskusage})
 	}
 
-
-	info :=NodeInfo{
-		os:nodeInfo,
-		cpu:cpuInfo,
-		disk:diskinfo,
+	info := NodeInfo{
+		os:   nodeInfo,
+		cpu:  cpuInfo,
+		disk: diskinfo,
 	}
-	
-	fmt.Printf("%v\n",diskinfo)
+	fmt.Printf("%v+\n", info)
 	//fmt.Printf("%v\n",diskinfo.usage)
-	fmt.Printf("%v\n",info.cpu)
-	fmt.Printf("%v\n",info.disk)
- }
-
+	//fmt.Printf("%v\n",info.cpu)
+	//fmt.Printf("%v\n",info.disk)
+}
