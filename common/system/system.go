@@ -47,9 +47,9 @@ func SystemInfo() {
 	}
 
 	info := NodeInfo{
-		os:   nodeInfo,
-		cpu:  cpuInfo,
-		disk: diskinfo,
+		OS:   nodeInfo,
+		CPU:  cpuInfo,
+		DISK: diskinfo,
 	}
 	fmt.Printf("%v+\n", info)
 	//fmt.Printf("%v\n",diskinfo.usage)
