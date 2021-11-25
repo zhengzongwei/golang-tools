@@ -43,7 +43,7 @@ func SystemInfo() {
 	diskinfo := []DiskInfo{}
 	for _, value := range diskInfo {
 		diskusage, _ := disk.Usage(value.Device)
-		diskinfo = append(diskinfo, DiskInfo{diskinfo: value, usage: *diskusage})
+		diskinfo = append(diskinfo, DiskInfo{DiskInfo: value, Usage: *diskusage})
 	}
 
 	info := NodeInfo{
@@ -51,7 +51,7 @@ func SystemInfo() {
 		CPU:  cpuInfo,
 		DISK: diskinfo,
 	}
-	fmt.Printf("%v+\n", info)
+	fmt.Printf("%v#\n", info)
 	//fmt.Printf("%v\n",diskinfo.usage)
 	//fmt.Printf("%v\n",info.cpu)
 	//fmt.Printf("%v\n",info.disk)
