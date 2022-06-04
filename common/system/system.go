@@ -8,7 +8,6 @@
 package system
 
 import (
-	"fmt"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
@@ -20,39 +19,58 @@ type DiskInfo struct {
 }
 
 type NodeInfo struct {
-	OS   *host.InfoStat `json:"os"`
+	NODE *host.InfoStat `json:"node"`
 	CPU  []cpu.InfoStat `json:"cpu"`
 	DISK []DiskInfo     `json:"disk"`
 }
 
 /*
- * @title: SystemInfo
- * @description: 获取系统相关信息
+ * @title: GetCPUinfo
+ * @description: 获取CPU相关信息
  * @param:
  * @return:
  */
 
-func SystemInfo() {
-	nodeInfo, _ := host.Info()
+func GetCPUinfo() []cpu.InfoStat {
 	cpuInfo, _ := cpu.Info()
+	return cpuInfo
+	//fmt.Printf("%v#\n", cpuInfo)
+}
 
+/*
+ * @title: GetNodeInfo
+ * @description: 获取Node相关信息
+ * @param:
+ * @return:
+ */
+
+func GetNodeInfo() *host.InfoStat {
+	nodeInfo, _ := host.Info()
+	return nodeInfo
+}
+
+/*
+ * @title: GetDiskinfo
+ * @description: 获取Disk相关信息
+ * @param:
+ * @return:
+ */
+
+func GetDiskinfo() []DiskInfo {
 	diskInfo, _ := disk.Partitions(true)
-	//for i:=0;i<len(diskInfo);i++{
-	//	fmt.Printf("%v\n",diskInfo[i])
-	//}
 	diskinfo := []DiskInfo{}
 	for _, value := range diskInfo {
 		diskusage, _ := disk.Usage(value.Device)
 		diskinfo = append(diskinfo, DiskInfo{DiskInfo: value, Usage: *diskusage})
 	}
+	return diskinfo
+}
 
-	info := NodeInfo{
-		OS:   nodeInfo,
-		CPU:  cpuInfo,
-		DISK: diskinfo,
-	}
-	fmt.Printf("%v#\n", info)
-	//fmt.Printf("%v\n",diskinfo.usage)
-	//fmt.Printf("%v\n",info.cpu)
-	//fmt.Printf("%v\n",info.disk)
+func GetSysteminfo() NodeInfo {
+	cpuInfo := GetCPUinfo()
+	nodeInfo := GetNodeInfo()
+	diskInfo := GetDiskinfo()
+	systeminfo := NodeInfo{}
+	systeminfo = NodeInfo{NODE: nodeInfo, CPU: cpuInfo, DISK: diskInfo}
+	return systeminfo
 }
