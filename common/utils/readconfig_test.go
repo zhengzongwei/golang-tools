@@ -7,6 +7,6 @@ import (
 
 func TestGetConfig(t *testing.T) {
 	path := "../conf/demo.yaml"
-	conf := GetConfig(path)
+	conf := GetYamlConfig(path)
 	fmt.Printf("%#v", conf)
 }

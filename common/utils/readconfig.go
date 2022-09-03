@@ -29,7 +29,7 @@ type Conf struct {
 	}
 }
 
-func GetConfig(path string) Conf {
+func GetYamlConfig(path string) Conf {
 	var conf Conf
 	yamlFile, err := os.ReadFile(path)
 	if err != nil {
