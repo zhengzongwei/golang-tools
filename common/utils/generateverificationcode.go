@@ -15,7 +15,7 @@ import (
 var (
 	number        = []byte("1234567890")
 	letters       = []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-	numberLetters = []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+	numberLetters = []byte("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 )
 
 var typeMap = map[string][]byte{
@@ -29,11 +29,12 @@ func init() {
 }
 
 func GenerateVerificationCode(verificationCodeType string, verificationCodeLen int) string {
+
 	b := make([]byte, verificationCodeLen)
 	items := typeMap[verificationCodeType]
 
 	for i := range b {
-		b[i] = items[rand.Intn(len(number))]
+		b[i] = items[rand.Intn(len(items))]
 	}
 	return string(b)
 }

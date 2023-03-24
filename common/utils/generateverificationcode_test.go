@@ -6,6 +6,12 @@ import (
 )
 
 func TestGenerateVerificationCode(t *testing.T) {
-	code := GenerateVerificationCode("number", 6)
-	fmt.Println(code)
+	numberCode := GenerateVerificationCode("number", 6)
+	fmt.Println(numberCode)
+
+	letterCode := GenerateVerificationCode("letter", 6)
+	fmt.Println(letterCode)
+
+	letterNumberCode := GenerateVerificationCode("letter_number", 6)
+	fmt.Println(letterNumberCode)
 }
