@@ -1,0 +1,11 @@
+server:
+  debug: true
+  version: 1.0
+mysql:
+  user: root
+  password: zhengzongwei
+  host: 192.168.31.223
+  port: 3306
+  name: test
+log:
+  level: info
