@@ -3,9 +3,9 @@ server:
   version: 1.0
 mysql:
   user: root
-  password: zhengzongwei
-  host: 192.168.31.223
+  password: mysql
+  host: localhost
   port: 3306
-  name: test
+  name: info
 log:
   level: info

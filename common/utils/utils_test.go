@@ -10,13 +10,14 @@ import (
 	"testing"
 )
 
+var pwd = "pwd123"
+
 func TestEncryptedPassword(t *testing.T) {
-	password := EncryptedPassword("pwd123")
+	password := EncryptedPassword(pwd)
 	fmt.Print(password)
 }
 
 func TestDecryptPassword(t *testing.T) {
-	password := "pwd12"
-	checkPWD := DecryptPassword(password)
+	checkPWD := DecryptPassword(pwd)
 	fmt.Println(checkPWD)
 }

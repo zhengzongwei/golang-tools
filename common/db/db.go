@@ -2,9 +2,10 @@ package db
 
 import (
 	"fmt"
+	"golang-tools/common/utils"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"gplang-tools/common/utils"
+	"log"
 )
 
 func InitDb(confPath string) (db *gorm.DB) {
@@ -28,11 +29,16 @@ func InitDb(confPath string) (db *gorm.DB) {
 
 func InitModel(db *gorm.DB) {
 	//defer db.Close()
-	db.AutoMigrate(&UserInfo{})
+	err := db.AutoMigrate(&UserInfo{})
+	if err != nil {
+		log.Printf("ERROR!,Migrate Model Failed %s ", err)
+	}
 }
 
 func CreateUser(db *gorm.DB) {
 	user := UserInfo{Name: "zhengzongwei", Passwd: "zhengzongwei", Status: 1}
+	user.Passwd = utils.EncryptedPassword(user.Passwd)
+
 	db.Create(&user)
 }
 
