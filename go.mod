@@ -5,6 +5,7 @@ go 1.21.3
 require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/shirou/gopsutil v3.21.11+incompatible
+	golang.org/x/crypto v0.14.0
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/mysql v1.5.2
 	gorm.io/gorm v1.25.5
