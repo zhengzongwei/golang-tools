@@ -12,6 +12,23 @@ import (
 	"time"
 )
 
+func TimeStamp2TimeStr(timestamp int64) string {
+
+	return time.Unix(timestamp, 0).Format("2006-01-02 15:04:05")
+}
+
+func TimeStr2TimeStamp(timeStr string) int64 {
+	// Parse the time string
+	Time, err := time.Parse("2006-01-02 15:04:05", timeStr)
+	if err != nil {
+		// Handle parsing error, for simplicity, returning 0
+		fmt.Println("Error parsing time:", err)
+		return 0
+	}
+
+	return Time.Unix()
+}
+
 /*
  * @title FormatPrint
  * @description
