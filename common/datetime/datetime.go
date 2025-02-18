@@ -1,4 +1,16 @@
 /*
+ * Copyright (c)2025. zhengzongwei
+ * golang-tools is licensed under Mulan PSL v2.
+ * You can use this software according to the terms and conditions of the Mulan PSL v2.
+ * You may obtain a copy of Mulan PSL v2 at:
+ *         http://license.coscl.org.cn/MulanPSL2
+ * THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND,
+ * EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+ * MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+ * See the Mulan PSL v2 for more details.
+ */
+
+/*
  * @Title datetime.go
  * @Description 时间处理模块
  * @Author zhengzongwei 2021/11/10 10:16
@@ -95,8 +107,8 @@ func CalculateRunTime(startTime, endTime string) int64 {
 func ConversionTime(timeStamp int64) map[string]int64 {
 	days := timeStamp / (3600 * 24)
 	hour := (timeStamp % (3600 * 24)) / 3600
-	min := (timeStamp % 3600) / 60
+	_min := (timeStamp % 3600) / 60
 	sec := timeStamp & 60 / 1000
-	data := map[string]int64{"days": days, "hour": hour, "min": min, "sec": sec}
+	data := map[string]int64{"days": days, "hour": hour, "min": _min, "sec": sec}
 	return data
 }

@@ -3,8 +3,8 @@ module golang-tools
 go 1.21.3
 
 require (
-	github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b
 	github.com/go-sql-driver/mysql v1.7.1
+	github.com/google/go-cmp v0.6.0
 	github.com/shirou/gopsutil v3.21.11+incompatible
 	golang.org/x/crypto v0.14.0
 	gopkg.in/yaml.v3 v3.0.1
